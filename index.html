@@ -5,60 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volunteer Form</title>
     <style>
-        /* Basic page styling */
         body {
             font-family: Arial, sans-serif;
             margin: 30px;
         }
-
-        /* Fieldset box with gray background */
         fieldset {
             border: 1px solid #000;
-            background-color: #ddd; /* gray background */
             margin-bottom: 20px;
-            padding: 15px;
+            padding: 30px;
         }
-
-        /* Legend title of each section */
         legend {
             font-weight: bold;
         }
-
-        /* Label and input spacing */
         label {
             display: block;
             margin-top: 8px;
         }
-
-        /* Input fields, select, and textarea formatting */
-        input[type="text"],
-        input[type="email"],
-        textarea,
-        select {
+        input[type="text"], input[type="email"], textarea, select {
             width: 300px;
             padding: 5px;
             margin-top: 4px;
         }
-
         textarea {
             height: 60px;
         }
-
-        /* Submit button style */
         .submit-btn {
             padding: 6px 12px;
             font-size: 14px;
-            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <h1>Volunteer Form</h1>
-
-    <!-- Form begins here -->
     <form action="http://bloomingdale.sat.iit.edu/kriedan/lab3formscript.php" method="POST">
         
-        <!-- First gray section: personal info -->
         <fieldset>
             <legend>My Info</legend>
             
@@ -77,7 +57,7 @@
             <label>Gender:</label>
             <input type="radio" id="male" name="gender_field" value="male">
             <label for="male">Male</label>
-
+            
             <input type="radio" id="female" name="gender_field" value="female">
             <label for="female">Female</label>
 
@@ -88,7 +68,6 @@
             </select>
         </fieldset>
 
-        <!-- Second gray section: availability -->
         <fieldset>
             <legend>Availability</legend>
             
@@ -118,10 +97,8 @@
             <textarea id="comments_field" name="comments_field"></textarea>
         </fieldset>
 
-        <!-- Hidden field for your name -->
         <input type="hidden" name="hidden_field" value="AnitaDee">
 
-        <!-- Submit button -->
         <input class="submit-btn" type="submit" value="Submit Query">
     </form>
 </body>
