@@ -5,14 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volunteer Form</title>
     <style>
-        /* Basic page setup */
+        /* Basic layout */
         body {
             font-family: Arial, sans-serif;
             margin: 30px;
-            background-color: white; /* clean white background */
+            background-color: white;
         }
 
-        /* Boxed form sections */
         fieldset {
             border: 1px solid #000;
             background-color: white;
@@ -24,7 +23,7 @@
             font-weight: bold;
         }
 
-        /* Align text and inputs on one line */
+        /* Each form line */
         .form-row {
             margin-bottom: 10px;
         }
@@ -35,30 +34,50 @@
             font-weight: bold;
         }
 
-        /* Long text boxes (about 75% width) */
+        /* Longer input boxes */
         .form-row input[type="text"],
         .form-row input[type="email"] {
             width: 75%;
             padding: 4px;
         }
 
-        /* Age dropdown — smaller and underneath label */
+        /* Age section small and below label */
         .age-row {
             margin-bottom: 10px;
         }
 
         .age-row label {
             font-weight: bold;
-            display: block; /* put the label on its own line */
+            display: block;
             margin-bottom: 4px;
         }
 
         .age-row select {
-            width: 120px; /* small dropdown box */
+            width: 120px;
             padding: 4px;
         }
 
-        /* Section headers ("Days Available", "Comments") */
+        /* Gender section — radios below label but close together */
+        .gender-row {
+            margin-bottom: 10px;
+        }
+
+        .gender-row label {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        .gender-options label {
+            font-weight: normal;
+            margin-right: 20px;
+        }
+
+        .gender-options input[type="radio"] {
+            margin-left: 6px;
+        }
+
+        /* Section titles like “Days Available” or “Comments” */
         .section-label {
             font-size: 1.1em;
             font-weight: bold;
@@ -66,26 +85,24 @@
             display: block;
         }
 
-        /* Each day on a new line */
+        /* Days listed vertically */
         .days {
             margin-top: 5px;
         }
 
         .days label {
-            display: block; /* stack days vertically */
+            display: block;
             font-weight: normal;
         }
 
-        /* Checkbox and radio button to the right of the text */
-        .days input[type="checkbox"],
-        .form-row input[type="radio"] {
+        .days input[type="checkbox"] {
             margin-left: 8px;
         }
 
-        /* Comment box styling */
+        /* Smaller comment box */
         textarea {
             width: 75%;
-            height: 60px;
+            height: 40px;
             margin-top: 5px;
         }
 
@@ -102,10 +119,10 @@
 
     <form action="http://bloomingdale.sat.iit.edu/kriedan/lab3formscript.php" method="POST">
         
-        <!-- Personal Info -->
+        <!-- My Info -->
         <fieldset>
             <legend>My Info</legend>
-            
+
             <div class="form-row">
                 <label for="first_name_field">First Name:</label>
                 <input type="text" id="first_name_field" name="first_name_field" required>
@@ -126,12 +143,12 @@
                 <input type="email" id="email_field" name="email_field">
             </div>
 
-            <div class="form-row">
+            <div class="gender-row">
                 <label>Gender:</label>
-                <label for="male">Male</label>
-                <input type="radio" id="male" name="gender_field" value="male">
-                <label for="female" style="margin-left:15px;">Female</label>
-                <input type="radio" id="female" name="gender_field" value="female">
+                <div class="gender-options">
+                    <label for="male">Male <input type="radio" id="male" name="gender_field" value="male"></label>
+                    <label for="female">Female <input type="radio" id="female" name="gender_field" value="female"></label>
+                </div>
             </div>
 
             <div class="age-row">
@@ -162,10 +179,10 @@
             <textarea id="comments_field" name="comments_field"></textarea>
         </fieldset>
 
-        <!-- Hidden Field -->
+        <!-- Hidden field -->
         <input type="hidden" name="hidden_field" value="AnitaDee">
 
-        <!-- Submit Button -->
+        <!-- Submit -->
         <input class="submit-btn" type="submit" value="Submit Query">
     </form>
 </body>
