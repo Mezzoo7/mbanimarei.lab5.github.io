@@ -23,7 +23,7 @@
             font-weight: bold;
         }
 
-        /* Each form line */
+        /* Align text and input */
         .form-row {
             margin-bottom: 10px;
         }
@@ -34,14 +34,14 @@
             font-weight: bold;
         }
 
-        /* Longer input boxes */
+        /* Longer text boxes */
         .form-row input[type="text"],
         .form-row input[type="email"] {
             width: 75%;
             padding: 4px;
         }
 
-        /* Age section small and below label */
+        /* Age dropdown smaller and below label */
         .age-row {
             margin-bottom: 10px;
         }
@@ -57,7 +57,7 @@
             padding: 4px;
         }
 
-        /* Gender section — radios below label but close together */
+        /* Gender section under label, side-by-side */
         .gender-row {
             margin-bottom: 10px;
         }
@@ -68,31 +68,38 @@
             margin-bottom: 4px;
         }
 
+        .gender-options {
+            display: flex;
+            gap: 25px; /* spacing between Male and Female */
+            align-items: center;
+        }
+
         .gender-options label {
             font-weight: normal;
-            margin-right: 20px;
         }
 
         .gender-options input[type="radio"] {
             margin-left: 6px;
         }
 
-        /* Section titles like “Days Available” or “Comments” */
+        /* Section titles like "Days Available" or "Comments" */
         .section-label {
             font-size: 1.1em;
             font-weight: bold;
-            margin-top: 10px;
+            margin-top: 15px;
             display: block;
         }
 
-        /* Days listed vertically */
+        /* Days listed vertically with spacing */
         .days {
-            margin-top: 5px;
+            margin-top: 10px; /* extra space after "Days Available" */
+            margin-bottom: 15px; /* extra space before Comments */
         }
 
         .days label {
             display: block;
             font-weight: normal;
+            margin-bottom: 4px;
         }
 
         .days input[type="checkbox"] {
@@ -102,7 +109,7 @@
         /* Smaller comment box */
         textarea {
             width: 75%;
-            height: 40px;
+            height: 25px; /* much shorter now */
             margin-top: 5px;
         }
 
@@ -179,10 +186,10 @@
             <textarea id="comments_field" name="comments_field"></textarea>
         </fieldset>
 
-        <!-- Hidden field -->
+        <!-- Hidden Field -->
         <input type="hidden" name="hidden_field" value="AnitaDee">
 
-        <!-- Submit -->
+        <!-- Submit Button -->
         <input class="submit-btn" type="submit" value="Submit Query">
     </form>
 </body>
