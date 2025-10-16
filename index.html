@@ -5,16 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volunteer Form</title>
     <style>
-        /* Page setup */
+        /* Basic page setup */
         body {
             font-family: Arial, sans-serif;
             margin: 30px;
+            background-color: white; /* clean white background */
         }
 
-        /* Section boxes */
+        /* Boxed form sections */
         fieldset {
             border: 1px solid #000;
-            background-color: #ddd;
+            background-color: white;
             margin-bottom: 20px;
             padding: 15px;
         }
@@ -23,25 +24,41 @@
             font-weight: bold;
         }
 
-        /* Label and input layout on same line */
+        /* Align text and inputs on one line */
         .form-row {
             margin-bottom: 10px;
         }
 
         .form-row label {
             display: inline-block;
-            width: 150px; /* label width */
+            width: 150px;
             font-weight: bold;
         }
 
+        /* Long text boxes (about 75% width) */
         .form-row input[type="text"],
-        .form-row input[type="email"],
-        .form-row select {
-            width: 350px; /* longer text boxes */
+        .form-row input[type="email"] {
+            width: 75%;
             padding: 4px;
         }
 
-        /* Bold section headers */
+        /* Age dropdown — smaller and underneath label */
+        .age-row {
+            margin-bottom: 10px;
+        }
+
+        .age-row label {
+            font-weight: bold;
+            display: block; /* put the label on its own line */
+            margin-bottom: 4px;
+        }
+
+        .age-row select {
+            width: 120px; /* small dropdown box */
+            padding: 4px;
+        }
+
+        /* Section headers ("Days Available", "Comments") */
         .section-label {
             font-size: 1.1em;
             font-weight: bold;
@@ -49,16 +66,25 @@
             display: block;
         }
 
-        /* Checkboxes inline */
+        /* Each day on a new line */
+        .days {
+            margin-top: 5px;
+        }
+
         .days label {
-            display: inline-block;
-            margin-right: 15px;
+            display: block; /* stack days vertically */
             font-weight: normal;
         }
 
-        /* Comment box */
+        /* Checkbox and radio button to the right of the text */
+        .days input[type="checkbox"],
+        .form-row input[type="radio"] {
+            margin-left: 8px;
+        }
+
+        /* Comment box styling */
         textarea {
-            width: 350px;
+            width: 75%;
             height: 60px;
             margin-top: 5px;
         }
@@ -76,7 +102,7 @@
 
     <form action="http://bloomingdale.sat.iit.edu/kriedan/lab3formscript.php" method="POST">
         
-        <!-- Personal Information Section -->
+        <!-- Personal Info -->
         <fieldset>
             <legend>My Info</legend>
             
@@ -102,14 +128,13 @@
 
             <div class="form-row">
                 <label>Gender:</label>
-                <input type="radio" id="male" name="gender_field" value="male">
                 <label for="male">Male</label>
-
+                <input type="radio" id="male" name="gender_field" value="male">
+                <label for="female" style="margin-left:15px;">Female</label>
                 <input type="radio" id="female" name="gender_field" value="female">
-                <label for="female">Female</label>
             </div>
 
-            <div class="form-row">
+            <div class="age-row">
                 <label for="age_field">Age:</label>
                 <select id="age_field" name="age_field">
                     <option value="under 18">under 18</option>
@@ -118,32 +143,19 @@
             </div>
         </fieldset>
 
-        <!-- Availability Section -->
+        <!-- Availability -->
         <fieldset>
             <legend>Availability</legend>
 
             <span class="section-label">Days Available:</span>
             <div class="days">
-                <input type="checkbox" id="sunday" name="available_field[]" value="sunday">
-                <label for="sunday">Sunday</label>
-
-                <input type="checkbox" id="monday" name="available_field[]" value="monday">
-                <label for="monday">Monday</label>
-
-                <input type="checkbox" id="tuesday" name="available_field[]" value="tuesday">
-                <label for="tuesday">Tuesday</label>
-
-                <input type="checkbox" id="wednesday" name="available_field[]" value="wednesday">
-                <label for="wednesday">Wednesday</label>
-
-                <input type="checkbox" id="thursday" name="available_field[]" value="thursday">
-                <label for="thursday">Thursday</label>
-
-                <input type="checkbox" id="friday" name="available_field[]" value="friday">
-                <label for="friday">Friday</label>
-
-                <input type="checkbox" id="saturday" name="available_field[]" value="saturday">
-                <label for="saturday">Saturday</label>
+                <label for="sunday">Sunday <input type="checkbox" id="sunday" name="available_field[]" value="sunday"></label>
+                <label for="monday">Monday <input type="checkbox" id="monday" name="available_field[]" value="monday"></label>
+                <label for="tuesday">Tuesday <input type="checkbox" id="tuesday" name="available_field[]" value="tuesday"></label>
+                <label for="wednesday">Wednesday <input type="checkbox" id="wednesday" name="available_field[]" value="wednesday"></label>
+                <label for="thursday">Thursday <input type="checkbox" id="thursday" name="available_field[]" value="thursday"></label>
+                <label for="friday">Friday <input type="checkbox" id="friday" name="available_field[]" value="friday"></label>
+                <label for="saturday">Saturday <input type="checkbox" id="saturday" name="available_field[]" value="saturday"></label>
             </div>
 
             <span class="section-label">Comments:</span>
