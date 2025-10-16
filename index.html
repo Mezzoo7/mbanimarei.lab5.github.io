@@ -5,100 +5,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Volunteer Form</title>
     <style>
+        /* Page setup */
         body {
             font-family: Arial, sans-serif;
             margin: 30px;
         }
+
+        /* Section boxes */
         fieldset {
             border: 1px solid #000;
+            background-color: #ddd;
             margin-bottom: 20px;
-            padding: 30px;
+            padding: 15px;
         }
+
         legend {
             font-weight: bold;
         }
-        label {
+
+        /* Label and input layout on same line */
+        .form-row {
+            margin-bottom: 10px;
+        }
+
+        .form-row label {
+            display: inline-block;
+            width: 150px; /* label width */
+            font-weight: bold;
+        }
+
+        .form-row input[type="text"],
+        .form-row input[type="email"],
+        .form-row select {
+            width: 350px; /* longer text boxes */
+            padding: 4px;
+        }
+
+        /* Bold section headers */
+        .section-label {
+            font-size: 1.1em;
+            font-weight: bold;
+            margin-top: 10px;
             display: block;
-            margin-top: 8px;
         }
-        input[type="text"], input[type="email"], textarea, select {
-            width: 300px;
-            padding: 5px;
-            margin-top: 4px;
+
+        /* Checkboxes inline */
+        .days label {
+            display: inline-block;
+            margin-right: 15px;
+            font-weight: normal;
         }
+
+        /* Comment box */
         textarea {
+            width: 350px;
             height: 60px;
+            margin-top: 5px;
         }
+
+        /* Submit button */
         .submit-btn {
             padding: 6px 12px;
             font-size: 14px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <h1>Volunteer Form</h1>
+
     <form action="http://bloomingdale.sat.iit.edu/kriedan/lab3formscript.php" method="POST">
         
+        <!-- Personal Information Section -->
         <fieldset>
             <legend>My Info</legend>
             
-            <label for="first_name_field">First Name:</label>
-            <input type="text" id="first_name_field" name="first_name_field" required>
-            
-            <label for="last_name_field">Last Name:</label>
-            <input type="text" id="last_name_field" name="last_name_field" required>
-            
-            <label for="phone_field">Phone:</label>
-            <input type="text" id="phone_field" name="phone_field" placeholder="(630) 333-7777">
-            
-            <label for="email_field">Email:</label>
-            <input type="email" id="email_field" name="email_field" placeholder="hello@world.com">
-            
-            <label>Gender:</label>
-            <input type="radio" id="male" name="gender_field" value="male">
-            <label for="male">Male</label>
-            
-            <input type="radio" id="female" name="gender_field" value="female">
-            <label for="female">Female</label>
+            <div class="form-row">
+                <label for="first_name_field">First Name:</label>
+                <input type="text" id="first_name_field" name="first_name_field" required>
+            </div>
 
-            <label for="age_field">Age:</label>
-            <select id="age_field" name="age_field">
-                <option value="under 18">under 18</option>
-                <option value="over 18">over 18</option>
-            </select>
+            <div class="form-row">
+                <label for="last_name_field">Last Name:</label>
+                <input type="text" id="last_name_field" name="last_name_field" required>
+            </div>
+
+            <div class="form-row">
+                <label for="phone_field">Phone:</label>
+                <input type="text" id="phone_field" name="phone_field">
+            </div>
+
+            <div class="form-row">
+                <label for="email_field">Email:</label>
+                <input type="email" id="email_field" name="email_field">
+            </div>
+
+            <div class="form-row">
+                <label>Gender:</label>
+                <input type="radio" id="male" name="gender_field" value="male">
+                <label for="male">Male</label>
+
+                <input type="radio" id="female" name="gender_field" value="female">
+                <label for="female">Female</label>
+            </div>
+
+            <div class="form-row">
+                <label for="age_field">Age:</label>
+                <select id="age_field" name="age_field">
+                    <option value="under 18">under 18</option>
+                    <option value="over 18">over 18</option>
+                </select>
+            </div>
         </fieldset>
 
+        <!-- Availability Section -->
         <fieldset>
             <legend>Availability</legend>
-            
-            <label>Days Available:</label>
-            <input type="checkbox" id="sunday" name="available_field[]" value="sunday">
-            <label for="sunday">Sunday</label>
 
-            <input type="checkbox" id="monday" name="available_field[]" value="monday">
-            <label for="monday">Monday</label>
+            <span class="section-label">Days Available:</span>
+            <div class="days">
+                <input type="checkbox" id="sunday" name="available_field[]" value="sunday">
+                <label for="sunday">Sunday</label>
 
-            <input type="checkbox" id="tuesday" name="available_field[]" value="tuesday">
-            <label for="tuesday">Tuesday</label>
+                <input type="checkbox" id="monday" name="available_field[]" value="monday">
+                <label for="monday">Monday</label>
 
-            <input type="checkbox" id="wednesday" name="available_field[]" value="wednesday">
-            <label for="wednesday">Wednesday</label>
+                <input type="checkbox" id="tuesday" name="available_field[]" value="tuesday">
+                <label for="tuesday">Tuesday</label>
 
-            <input type="checkbox" id="thursday" name="available_field[]" value="thursday">
-            <label for="thursday">Thursday</label>
+                <input type="checkbox" id="wednesday" name="available_field[]" value="wednesday">
+                <label for="wednesday">Wednesday</label>
 
-            <input type="checkbox" id="friday" name="available_field[]" value="friday">
-            <label for="friday">Friday</label>
+                <input type="checkbox" id="thursday" name="available_field[]" value="thursday">
+                <label for="thursday">Thursday</label>
 
-            <input type="checkbox" id="saturday" name="available_field[]" value="saturday">
-            <label for="saturday">Saturday</label>
+                <input type="checkbox" id="friday" name="available_field[]" value="friday">
+                <label for="friday">Friday</label>
 
-            <label for="comments_field">Comments:</label>
+                <input type="checkbox" id="saturday" name="available_field[]" value="saturday">
+                <label for="saturday">Saturday</label>
+            </div>
+
+            <span class="section-label">Comments:</span>
             <textarea id="comments_field" name="comments_field"></textarea>
         </fieldset>
 
+        <!-- Hidden Field -->
         <input type="hidden" name="hidden_field" value="AnitaDee">
 
+        <!-- Submit Button -->
         <input class="submit-btn" type="submit" value="Submit Query">
     </form>
 </body>
